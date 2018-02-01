@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Typeannonce controller.
  *
- * @Route("admin/typeannonce")
+ * @Route("/admin/typeannonce")
  */
 class TypeAnnonceController extends Controller
 {

@@ -1,3 +1,6 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
 app_annonce:
     resource: "@AppBundle/Controller/AnnonceController.php"
     type:     annotation
@@ -16,6 +19,3 @@ app_administrateur:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation

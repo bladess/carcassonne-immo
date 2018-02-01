@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\File\File;
 /**
  * Annonce controller.
  *
- * @Route("admin/annonce")
+ * @Route("/admin/annonce")
  */
 class AnnonceController extends Controller
 {

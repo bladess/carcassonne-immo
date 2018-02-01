@@ -19,7 +19,7 @@ class DefaultController extends Controller
         ]);
     }
     /**
-     * @Route("admin", name="index_admin")
+     * @Route("/admin", name="index_admin")
      */
     public function adminAction()
     {
