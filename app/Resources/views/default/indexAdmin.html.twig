@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1> Accueil espace administrateur </h1>
+    <ul>
+        <li><a href="{{path('admin_annonce_index')}}">Gestion annonce</a></li>
+        <li><a href="{{path('admin_typeannonce_index')}}">Gestion des types d'annonces</a></li>
+        <li><a href="{{path('admin_administrateur_index')}}">Gestion des administrateurs</a></li>
+        <li><a href="{{path('admin_client_index')}}">Gestion client</a></li>
+    </ul>
+{% endblock %}
