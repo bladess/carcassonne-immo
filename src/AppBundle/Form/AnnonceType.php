@@ -14,7 +14,7 @@ class AnnonceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('titre')->add('description')->add('nbPieces')->add('photo',FileType::class, array('label' => 'Photo( PNG, JPG)'))->add('typeAnnonce')->add('client');
+        $builder->add('titre')->add('description')->add('prix')->add('nbPieces')->add('photo',FileType::class, array('label' => 'Photo( PNG, JPG)'))->add('typeAnnonce')->add('client');
     }/**
      * {@inheritdoc}
      */

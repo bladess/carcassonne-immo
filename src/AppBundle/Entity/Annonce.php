@@ -45,6 +45,13 @@ class Annonce
     private $nbPieces;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="ann_prix", type="float")
+     */
+    private $prix;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="ann_photo", type="string", length=255)
@@ -249,5 +256,29 @@ class Annonce
     public function getAdministrateur()
     {
         return $this->administrateur;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param float $prix
+     *
+     * @return Annonce
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return float
+     */
+    public function getPrix()
+    {
+        return $this->prix;
     }
 }

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class='page-header'>
+    <h2>Liste des annonces</h2>
+</div>
+<div class='row'>
+    <ul class='list-unstyled'>
+    {% for annonce in annonces %}
+        <li class='jumbotron'>
+            <ul class='list-unstyled'>
+            <li>
+                <h3>{{ annonce.titre }}</h3>
+            </li>
+            <li>
+                Prix : {{ annonce.prix }} €
+            </li>
+            <li>
+                Nombre de pièces :{{ annonce.nbPieces }}
+            </li>
+            </ul>
+        </li>
+    
+    {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock %}
+

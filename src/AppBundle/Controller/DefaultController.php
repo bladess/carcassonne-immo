@@ -23,7 +23,19 @@ class DefaultController extends Controller
      */
     public function adminAction()
     {
-        // replace this example code with whatever you need
+        
         return $this->render('default/indexAdmin.html.twig');
     }
+    /**
+     * @Route("/annonces", name="liste_annonces")
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $annonces = $em->getRepository('AppBundle:Annonce')->findAll();
+
+        return $this->render('default/annonces.html.twig', ['annonces' => $annonces]);
+    }
+
 }
