@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Administrateurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for administrateur in administrateurs %}
+            <tr>
+                <td><a href="{{ path('admin_administrateur_show', { 'id': administrateur.id }) }}">{{ administrateur.id }}</a></td>
+                <td>{{ administrateur.nom }}</td>
+                <td>{{ administrateur.prenom }}</td>
+                <td>{{ administrateur.telephone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_administrateur_show', { 'id': administrateur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_administrateur_edit', { 'id': administrateur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_administrateur_new') }}">Create a new administrateur</a>
+        </li>
+    </ul>
+{% endblock %}
