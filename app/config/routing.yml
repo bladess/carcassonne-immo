@@ -1,3 +1,15 @@
+app_annonce:
+    resource: "@AppBundle/Controller/AnnonceController.php"
+    type:     annotation
+
+app_type_annonce:
+    resource: "@AppBundle/Controller/TypeAnnonceController.php"
+    type:     annotation
+
+app_client:
+    resource: "@AppBundle/Controller/ClientController.php"
+    type:     annotation
+
 app_administrateur:
     resource: "@AppBundle/Controller/AdministrateurController.php"
     type:     annotation

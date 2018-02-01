@@ -42,7 +42,18 @@ class Administrateur extends BaseUser
      */
     private $telephone;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Annonce", mappedBy="administrateur")
+     */
+    private $annonces;
 
+    public function __construct()
+    {
+        $this->annonces = new ArrayCollection();
+    }
+    public function __toString(){
+        return $this->getNom().' '.$this->getPrenom();
+    }
     /**
      * Get id
      *
@@ -124,5 +135,38 @@ class Administrateur extends BaseUser
     {
         return $this->telephone;
     }
-}
 
+    /**
+     * Add annonce
+     *
+     * @param \AppBundle\Entity\Annonce $annonce
+     *
+     * @return Administrateur
+     */
+    public function addAnnonce(\AppBundle\Entity\Annonce $annonce)
+    {
+        $this->annonces[] = $annonce;
+
+        return $this;
+    }
+
+    /**
+     * Remove annonce
+     *
+     * @param \AppBundle\Entity\Annonce $annonce
+     */
+    public function removeAnnonce(\AppBundle\Entity\Annonce $annonce)
+    {
+        $this->annonces->removeElement($annonce);
+    }
+
+    /**
+     * Get annonces
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnnonces()
+    {
+        return $this->annonces;
+    }
+}

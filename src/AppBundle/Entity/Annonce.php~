@@ -49,7 +49,7 @@ class Annonce
      *
      * @ORM\Column(name="ann_photo", type="string", length=255)
      * @Assert\NotBlank(message="Veuilly utiliser un fichier jpg ou png svp.")
-     * @Assert\File(mimeTypes={ "image/jpg", "image/png" })
+     * @Assert\File(mimeTypes={ "application/jpg", "application/png" })
      */
     private $photo;
 
@@ -178,76 +178,5 @@ class Annonce
     {
         return $this->photo;
     }
-
-    /**
-     * Set typeAnnonce
-     *
-     * @param \AppBundle\Entity\TypeAnnonce $typeAnnonce
-     *
-     * @return Annonce
-     */
-    public function setTypeAnnonce(\AppBundle\Entity\TypeAnnonce $typeAnnonce = null)
-    {
-        $this->typeAnnonce = $typeAnnonce;
-
-        return $this;
-    }
-
-    /**
-     * Get typeAnnonce
-     *
-     * @return \AppBundle\Entity\TypeAnnonce
-     */
-    public function getTypeAnnonce()
-    {
-        return $this->typeAnnonce;
-    }
-
-    /**
-     * Set client
-     *
-     * @param \AppBundle\Entity\Client $client
-     *
-     * @return Annonce
-     */
-    public function setClient(\AppBundle\Entity\Client $client = null)
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
-    /**
-     * Get client
-     *
-     * @return \AppBundle\Entity\Client
-     */
-    public function getClient()
-    {
-        return $this->client;
-    }
-
-    /**
-     * Set administrateur
-     *
-     * @param \AppBundle\Entity\Administrateur $administrateur
-     *
-     * @return Annonce
-     */
-    public function setAdministrateur(\AppBundle\Entity\Administrateur $administrateur = null)
-    {
-        $this->administrateur = $administrateur;
-
-        return $this;
-    }
-
-    /**
-     * Get administrateur
-     *
-     * @return \AppBundle\Entity\Administrateur
-     */
-    public function getAdministrateur()
-    {
-        return $this->administrateur;
-    }
 }
+

@@ -2,7 +2,7 @@
 # https://symfony.com/doc/current/service_container.html
 parameters:
     #parameter_name: value
-
+    photo_directory: '%kernel.project_dir%/web/uploads/photos'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -37,3 +37,4 @@ services:
         class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+    

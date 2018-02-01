@@ -52,7 +52,7 @@ class Client
         $this->annonces = new ArrayCollection();
     }
     public function __toString(){
-        return $this->getNom().' '.$this->getPrenom();
+        return $this->getNom().''.$this->getPrenom();
     }
     /**
      * Get id
@@ -135,38 +135,5 @@ class Client
     {
         return $this->telephone;
     }
-
-    /**
-     * Add annonce
-     *
-     * @param \AppBundle\Entity\Annonce $annonce
-     *
-     * @return Client
-     */
-    public function addAnnonce(\AppBundle\Entity\Annonce $annonce)
-    {
-        $this->annonces[] = $annonce;
-
-        return $this;
-    }
-
-    /**
-     * Remove annonce
-     *
-     * @param \AppBundle\Entity\Annonce $annonce
-     */
-    public function removeAnnonce(\AppBundle\Entity\Annonce $annonce)
-    {
-        $this->annonces->removeElement($annonce);
-    }
-
-    /**
-     * Get annonces
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAnnonces()
-    {
-        return $this->annonces;
-    }
 }
+

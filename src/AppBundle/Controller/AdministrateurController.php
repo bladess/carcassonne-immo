@@ -45,7 +45,7 @@ class AdministrateurController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $administrateur->setEnabled(true);
-            $administrateur->addRole('ROLE_ADMIN');
+            $administrateur->addRole('ROLE_ADMIN'); 
             $em = $this->getDoctrine()->getManager();
             $em->persist($administrateur);
             $em->flush();
