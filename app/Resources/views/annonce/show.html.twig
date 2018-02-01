@@ -26,8 +26,16 @@
                 <td><img src="{{ asset('uploads/photos/' ~ annonce.photo) }}" alt='photo'></td>
             </tr>
             <tr>
+                <th>Type d'annonce </th>
+                <td>{{ annonce.typeAnnonce }}</td>
+            </tr>
+            <tr>
                 <th>Admin ayant saisie l'annonce </th>
                 <td>{{ annonce.administrateur }}</td>
+            </tr>
+            <tr>
+                <th>Client </th>
+                <td>{{ annonce.client }}</td>
             </tr>
         </tbody>
     </table>
