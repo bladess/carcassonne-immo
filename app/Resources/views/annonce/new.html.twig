@@ -4,7 +4,14 @@
     <h1>Annonce creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+        {% for line in form %}
+        {% if loop.last == false %}
+        <div class='form-group'>
+        {{ form_label(line)}}
+        {{ form_widget(line,{ 'attr': {'class': 'form-control'} })}}
+        </div>
+        {% endif %}
+        {% endfor %}
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 
