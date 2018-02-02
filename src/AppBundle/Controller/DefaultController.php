@@ -18,13 +18,16 @@ class DefaultController extends Controller
         // replace this example code with whatever you need
         return $this->redirectToRoute('liste_annonces');
     }
+
     /**
-     * @Route("/admin", name="index_admin")
+     * @Route("/admin/", name="index_admin")
      */
     public function adminAction()
     {
         return $this->render('default/indexAdmin.html.twig');
     }
+
+
     /**
      * @Route("/annonces", name="liste_annonces")
      */
@@ -32,7 +35,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $types = $this->getDoctrine()->getRepository('AppBundle:TypeAnnonce')->findAll();
-        $listTypes = ['Tout types' => 0];
+        $listTypes = ['Toutes les annonces' => 0];
         foreach($types as $key => $value){
             $listTypes += [$value->getIntitule() => $value->getId()];
         }    

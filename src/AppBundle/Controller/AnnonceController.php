@@ -40,16 +40,16 @@ class AnnonceController extends Controller
      */
     public function newAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $annonce = new Annonce();
         $form = $this->createForm('AppBundle\Form\AnnonceType', $annonce);
         $form->handleRequest($request);
         $idAdmin = $this->getUser()->getId();
+        $admin = $em->getRepository('AppBundle:Administrateur')->find($idAdmin);
+        $annonce->setAdministrateur($admin);
 
-        $em = $this->getDoctrine()->getManager();
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $annonce->getPhoto();
-            $admin = $em->getRepository('AppBundle:Administrateur')->find($idAdmin);
-            $annonce->setAdministrateur($admin);
             // Generate a unique name for the file before saving it
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
@@ -58,15 +58,9 @@ class AnnonceController extends Controller
                 $this->getParameter('photo_directory'),
                 $fileName
             );
-            $annonce->setPhoto($fileName);
-
-            
-            
-            
-            
+            $annonce->setPhoto($fileName);       
             $em->persist($annonce);
             $em->flush();
-
             return $this->redirectToRoute('admin_annonce_show', array('id' => $annonce->getId()));
         }
 

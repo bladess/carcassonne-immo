@@ -56,7 +56,7 @@ class Annonce
      *
      * @ORM\Column(name="ann_photo", type="string", length=255)
      * @Assert\NotBlank(message="Veuilly utiliser un fichier jpg ou png svp.")
-     * @Assert\File(mimeTypes={ "image/jpg", "image/png" })
+     * @Assert\File(mimeTypes={ "image/jpeg","image/jpg", "image/png" })
      */
     private $photo;
 
