@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class='page-header'>
+    <h2 class='text-center'>Annonce : {{ annonce.titre }}</h2>
+    <a href="{{ path('liste_annonces')}}">Retour aux annonces</a>
+</div>
+<div class='row jumbotron'>
+    <ul class='list-unstyled col-lg-6'>
+        <li>
+            Description : {{ annonce.description }}
+        </li>
+    </ul>
+    <div class='col-lg-6 '>
+            <img class='center-block' src="{{ asset('uploads/photos/' ~ annonce.photo) }}" alt='photo'/>
+        <ul class='list-unstyled pull-right'>   
+            <li>
+                Prix : {{ annonce.prix }} €
+            </li>
+            <li>
+                Nombre de pièces : {{ annonce.nbPieces }}
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

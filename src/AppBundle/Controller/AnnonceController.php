@@ -100,14 +100,24 @@ class AnnonceController extends Controller
      */
     public function editAction(Request $request, Annonce $annonce)
     {
+        $annonce->setPhoto(
+            new File($this->getParameter('photo_directory').'/'.$annonce->getPhoto())
+        );
         $deleteForm = $this->createDeleteForm($annonce);
         $editForm = $this->createForm('AppBundle\Form\AnnonceType', $annonce);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $product->setPhoto(
-                new File($this->getParameter('photo_directory').'/'.$product->getPhoto())
+            $file = $annonce->getPhoto();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            // Move the file to the directory where photos are stored
+            $file->move(
+                $this->getParameter('photo_directory'),
+                $fileName
             );
+            $annonce->setPhoto($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_annonce_edit', array('id' => $annonce->getId()));

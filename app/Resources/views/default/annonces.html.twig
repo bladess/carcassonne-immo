@@ -2,17 +2,19 @@
 
 {% block body %}
 <div class='page-header'>
-    <h2>Liste des annonces</h2>
+    <h2 class='text-center'>Carcassonne Immo - Liste des annonces</h2>
     {{ form_start(form) }}
     <div class='row'>
-    <div class='col-lg-6 form-group'>
+    <div class='col-lg-5 form-group'>
     {{ form_widget(form.search,{ 'attr': {'class': 'form-control'} }) }}
     </div>
-    <div class='col-lg-6 form-group'>
+    <div class='col-lg-5 form-group'>
     {{ form_widget(form.typeannonce,{ 'attr': {'class': 'form-control'} }) }}
     </div>
+    <div class='col-lg-2 form-group'>
+    <button class='btn btn-default form-control' type="submit"/><span class='glyphicon glyphicon-search'></span></button>
     </div>
-    <button class='btn btn-default' type="submit"/><span class='glyphicon glyphicon-search'></span></button>
+    </div>
     {{ form_end(form) }}
 </div>
 <div class='row'>
@@ -21,7 +23,7 @@
         <li class='jumbotron'>
             <ul class='list-unstyled'>
             <li>
-                <h3>{{ annonce.titre }}</h3>
+                <h3><a href="{{ path('annonce', {'id': annonce.id }) }}" >{{ annonce.titre }}</a></h3>
             </li>
             <li>
                 Prix : {{ annonce.prix }} €
