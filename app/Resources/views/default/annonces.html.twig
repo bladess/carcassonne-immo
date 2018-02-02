@@ -3,6 +3,17 @@
 {% block body %}
 <div class='page-header'>
     <h2>Liste des annonces</h2>
+    {{ form_start(form) }}
+    <div class='row'>
+    <div class='col-lg-6 form-group'>
+    {{ form_widget(form.search,{ 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class='col-lg-6 form-group'>
+    {{ form_widget(form.typeannonce,{ 'attr': {'class': 'form-control'} }) }}
+    </div>
+    </div>
+    <button class='btn btn-default' type="submit"/><span class='glyphicon glyphicon-search'></span></button>
+    {{ form_end(form) }}
 </div>
 <div class='row'>
     <ul class='list-unstyled'>
