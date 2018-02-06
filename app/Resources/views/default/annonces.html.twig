@@ -5,37 +5,38 @@
     <h2 class='text-center'>Carcassonne Immo - Liste des annonces</h2>
     {{ form_start(form) }}
     <div class='row'>
-    <div class='col-lg-5 form-group'>
+    <div class='col-sm-5 form-group'>
     {{ form_widget(form.search,{ 'attr': {'class': 'form-control'} }) }}
     </div>
-    <div class='col-lg-5 form-group'>
+    <div class='col-sm-5 form-group'>
     {{ form_widget(form.typeannonce,{ 'attr': {'class': 'form-control'} }) }}
     </div>
-    <div class='col-lg-2 form-group'>
+    <div class='col-sm-2 form-group'>
     <button class='btn btn-default form-control' type="submit"/><span class='glyphicon glyphicon-search'></span></button>
     </div>
     </div>
     {{ form_end(form) }}
 </div>
 <div class='row'>
-    <ul class='list-unstyled'>
-    {% for annonce in annonces %}
-        <li class='jumbotron'>
-            <ul class='list-unstyled'>
-            <li>
-                <h3><a href="{{ path('annonce', {'id': annonce.id }) }}" >{{ annonce.titre }}</a></h3>
-            </li>
-            <li>
-                Prix : {{ annonce.prix }} €
-            </li>
-            <li>
-                Nombre de pièces :{{ annonce.nbPieces }}
-            </li>
-            </ul>
-        </li>
+        {% for annonce in annonces %}
+        <div class='col-lg-4'>
+            <div class='jumbotron'>
+                <ul class='list-unstyled'>
+                <li>
+                    <h3><a href="{{ path('annonce', {'id': annonce.id }) }}" >
+                    {{ annonce.titre|slice(0, 10) ~ '...'}}</a></h3>
+                </li>
+                <li>
+                    Prix : {{ annonce.prix }} €
+                </li>
+                    <li>
+                    Nombre de pièces :{{ annonce.nbPieces }}
+                </li>
+                </ul>
+            </div> 
+        </div>
     
     {% endfor %}
-    </ul>
 
 </div>
 

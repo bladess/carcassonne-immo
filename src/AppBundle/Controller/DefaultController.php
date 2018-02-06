@@ -39,9 +39,6 @@ class DefaultController extends Controller
         foreach($types as $key => $value){
             $listTypes += [$value->getIntitule() => $value->getId()];
         }    
-        // dump($listTypes);
-        // die();
-
 
         $form = $this->createFormBuilder()
         ->add('search', SearchType::class, array('required'   => false,'label' => ' ','attr' => array(
@@ -53,7 +50,7 @@ class DefaultController extends Controller
     if ($form->isSubmitted() && $form->isValid()) {
             $search = $form->getData()['search'];
             $typeS = $form->getData()['typeannonce'];
-            dump($typeS);
+            
             if($typeS === 0){
                 $query = $em->createQuery('SELECT a FROM AppBundle\Entity\Annonce a WHERE a.titre like :p')
                 ->setParameter('p','%'.$search.'%');
