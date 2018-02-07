@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Administrateur
  *
@@ -49,6 +51,7 @@ class Administrateur extends BaseUser
 
     public function __construct()
     {
+        parent::__construct();
         $this->annonces = new ArrayCollection();
     }
     public function __toString(){
