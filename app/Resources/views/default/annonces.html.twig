@@ -18,7 +18,7 @@
     {{ form_end(form) }}
 </div>
 <div class='row'>
-        {% for annonce in annonces %}
+        {% for annonce in annonces|reverse %}
         <div class='col-lg-4'>
             <div class='jumbotron'>
                 <ul class='list-unstyled'>
